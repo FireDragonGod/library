@@ -8,7 +8,6 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <!-- coommit on this -->
     <header>
         <div>
             <img class="header_logo" draggable="false" src="img/bookLibraryLogo.svg" alt="library-logo" title="Library Logo">
@@ -23,6 +22,33 @@
 
         </div>
     </main>
-    <!-- ends here -->
+    <aside>
+        <form action="" method="get" class="aside_form">
+            <ul class="aside_ul_form_controls">
+                <li>
+                    <img src="img/close_FILL0_wght400_GRAD0_opsz48.svg" alt="close_svg_img" draggable="false" class="close">
+                </li>
+                <li>
+                    <label for="title">Title: </label>
+                    <input type="text" name="title" id="title" required >
+                </li>
+                <li>
+                    <label for="author">Author: </label>
+                    <input type="text" name="author" id="author" required >
+                </li>
+                <li>
+                    <label for="page">Page: </label>
+                    <input type="number" name="page" id="page" required min="1" max="100000000000000000000">
+                </li>
+                <li>
+                    <label for="read">Done reading it?</label>
+                    <input type="checkbox" name="read_or_not" id="read">
+                </li>
+                <li>
+                    <button class="submit" type="submit">Add</button>
+                </li>
+            </ul>
+        </form>
+    </aside>
 </body>
 </html>
