@@ -305,7 +305,7 @@ input[type='text'] {
 
 input[type='text']:focus-visible:valid {
 	outline: none;
-	border-bottom: var(--aside-form-input-type-text-focus-visible);
+	border-bottom: var(--aside-form-input-type-text-focus-visible-border-bottom);
 }
 
 input[type='text']:focus:invalid {
