@@ -149,6 +149,12 @@ const readStatus = function enableChangingReadStatus() {
   })
 };
 
+const submit = document.querySelector('button[type=submit]');
+const title = document.querySelector('input#title');
+const author = document.querySelector('input#author');
+const page = document.querySelector('input#page');
+const read = document.querySelector('input#read');
+
 const submitForm = function submitFormWhenCertainValuesAreTrueORNotEqualToUndefined(event) {
   if (title.value !== '' && author.value !== '' && page.value !== '' && read.value !== '') {
     event.preventDefault();
@@ -159,3 +165,17 @@ const submitForm = function submitFormWhenCertainValuesAreTrueORNotEqualToUndefi
     readStatus();
   }
 };
+
+submit.addEventListener('click', submitForm);
+
+function addSampleBookToMyLibrary(title, author, page, read) {
+  toMyLibrary(title, author, page, read);
+  card();
+  readStatus();
+  cardRemover();
+};
+
+addSampleBookToMyLibrary('The Habit', 'S.P.P. Torkel', 143, false);
+addSampleBookToMyLibrary('Rama & Julia', 'Wil Shakesearth', 481, false);
+addSampleBookToMyLibrary('God Of Thrones', 'gearger marton', 343, false);
+addSampleBookToMyLibrary('I Want My bag pack back', 'Jan Klosure', 43, true);
