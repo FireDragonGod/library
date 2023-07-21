@@ -87,25 +87,3 @@ const submitForm = function submitFormWhenCertainValuesAreTrueORNotEqualToUndefi
     readStatus();
   }
 };
-
-const cardRemover = function enableRemovingCard() {
-  const remove = document.querySelectorAll('.remove');
-  const mainCard = document.querySelectorAll(`.main_card`);
-
-  let index = 0;
-  for (let i = 0; i < myLibrary.length; i++) {
-    index = i;
-  }
-
-  remove.forEach((button) => {
-
-    button.addEventListener('click', (event) => {
-
-      for (const card of Array.from(mainCard)) {
-        if (event.target.getAttribute('data-index') === `${index}` && card.getAttribute('data-index') === `${index}`) {
-          card.remove();
-        }
-      }
-    });
-  });
-};
