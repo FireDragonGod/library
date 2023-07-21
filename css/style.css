@@ -114,7 +114,7 @@ table {
 	--aside-form-input-type-text-font-size: clamp(1rem, 5vw, 1.5rem);
 	--aside-form-input-type-text-focus-visible-border-bottom: 2px solid blue;
 	--aside-form-input-type-text-invalid-border-bottom: 2px solid red;
-	--aside-form-input-type-number-font-size: clamp(1.2rem, 5vw, 1.5rem);
+	--aside-form-input-type-number-font-size: clamp(1rem, 5vw, 1.5rem);
 	--aside-form-input-type-number-color: #00000090;
 	--aside-form-input-type-number-border: 0;
 	--aside-form-input-type-number-border-bottom: 2px solid green;
