@@ -77,6 +77,31 @@ closeForm.addEventListener('click', function closeForm() {
   aside.classList.remove('aside_form_scale_to_one')
 });
 
+
+const cardRemover = function enableRemovingCard() {
+  const remove = document.querySelectorAll('.remove');
+  const mainCard = document.querySelectorAll(`.main_card`);
+
+  let index = 0;
+  for (let i = 0; i < myLibrary.length; i++) {
+    index = i;
+  }
+
+  remove.forEach((button) => {
+
+    button.addEventListener('click', (event) => {
+
+      for (const card of Array.from(mainCard)) {
+        if (event.target.getAttribute('data-index') === `${index}` && card.getAttribute('data-index') === `${index}`) {
+          card.remove();
+        }
+      }
+    });
+  });
+};
+
+
+
 const submitForm = function submitFormWhenCertainValuesAreTrueORNotEqualToUndefined(event) {
   if (title.value !== '' && author.value !== '' && page.value !== '' && read.value !== '') {
     event.preventDefault();
