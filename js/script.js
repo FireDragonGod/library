@@ -100,7 +100,54 @@ const cardRemover = function enableRemovingCard() {
   });
 };
 
+Book.prototype.displayReadStatusOnCheckbox = function() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    let element = myLibrary[i].read;
+    switch (element) {
+      case true: {
+        return this.read = 'read';
+      }
+      case false : {
+        return this.read = 'not read';
+      }
+    }
+  }
+}
 
+Book.prototype.toggleButton = function() {
+  switch (this.read) {
+    case 'not read' : {
+      return this.read = 'read';
+    }
+    case 'read' : {
+      return this.read = 'not read';
+    }
+  }
+};
+
+const readStatus = function enableChangingReadStatus() {
+  const read = document.querySelectorAll('.read');
+
+  let index = 0;
+  for (let i = 0; i < myLibrary.length; i++) {
+    index = i;
+  }
+  read.forEach((button) => {
+
+    button.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      e.target.textContent = myLibrary[index].toggleButton();
+      switch (e.target.textContent) {
+        case 'not read': {
+          return e.target.classList.add('not-yet-read');
+        }
+        case 'read' : {
+          return e.target.classList.remove('not-yet-read');
+        }
+      }
+    })
+  })
+};
 
 const submitForm = function submitFormWhenCertainValuesAreTrueORNotEqualToUndefined(event) {
   if (title.value !== '' && author.value !== '' && page.value !== '' && read.value !== '') {
