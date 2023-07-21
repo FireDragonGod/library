@@ -64,3 +64,15 @@ const card = function displayElementInTheDom() {
   page.value = '';
   read.checked = false;
 };
+
+const newBook = document.querySelector('.new_book');
+const aside = document.querySelector('aside');
+const closeForm = document.querySelector('.close');
+
+newBook.addEventListener('click', function showsForm() {
+  aside.classList.add('aside_form_scale_to_one')
+});
+
+closeForm.addEventListener('click', function closeForm() {
+  aside.classList.remove('aside_form_scale_to_one')
+});
