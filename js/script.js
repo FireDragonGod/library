@@ -13,3 +13,54 @@ const toMyLibrary = function addToMyLibrary(title, author, page, read) {
   let userInput = new Book(title, author, page, read);
   return myLibrary.push(userInput);
 };
+
+const card = function displayElementInTheDom() {
+  let index = 0;
+  for (let j = 0; j < myLibrary.length; j++) {
+    index = j;
+  }
+  let lastBook = myLibrary.slice(-1);
+  for (let i = 0; i < lastBook.length; i++) {
+    const mainWrapperCards = document.querySelector('.main_wrapper_cards');
+    const mainCard = document.createElement('div');
+    const page = document.createElement('p');
+    const title = document.createElement('h2');
+    const author = document.createElement('p');
+    const div = document.createElement('div');
+    const readButton = document.createElement('button');    
+    const removeButton = document.createElement('button');
+    
+    page.textContent = lastBook[i].page;
+    title.textContent = lastBook[i].title;
+    author.textContent = lastBook[i].author;
+    readButton.textContent = lastBook[i].displayReadStatusOnCheckbox();
+    removeButton.textContent = 'remove';
+
+    mainCard.classList.add('main_card');
+    readButton.classList.add('read');
+    removeButton.classList.add('remove');
+
+    mainCard.setAttribute('data-index', `${index}`);
+    removeButton.setAttribute('data-index', `${index}`);
+    readButton.setAttribute('data-index', `${index}`);
+    
+    mainWrapperCards.appendChild(mainCard);
+    mainCard.appendChild(page);
+    mainCard.appendChild(title);
+    mainCard.appendChild(author);
+    mainCard.appendChild(div);
+    div.appendChild(readButton);
+    div.appendChild(removeButton);
+
+    if (readButton.textContent === 'not read') {
+      readButton.classList.add('not-yet-read');
+    }
+    if (readButton.textContent === 'read') {
+      readButton.classList.remove('not-yet-read');
+    }
+  }
+  title.value = '';
+  author.value = '';
+  page.value = '';
+  read.checked = false;
+};
